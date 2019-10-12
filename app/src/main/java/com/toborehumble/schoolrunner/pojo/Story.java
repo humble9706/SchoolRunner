@@ -19,6 +19,15 @@ public class Story {
         this.timeStamp = System.currentTimeMillis();
     }
 
+    public Story(
+            String subjectUsername,
+            String verb
+    ) {
+        this.subjectUsername = subjectUsername;
+        this.verb = verb;
+        this.timeStamp = System.currentTimeMillis();
+    }
+
     public String getSubjectUsername() {
         return subjectUsername;
     }

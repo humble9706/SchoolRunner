@@ -230,7 +230,7 @@ public class UploadPictureActivity extends AppCompatActivity {
 
     private void createUserSignInStory() {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-        Story story = new Story(username, "created a new account", auth_user.getUid());
+        Story story = new Story(username, "created a new account");
         String key = dbRef.child("stories").push().getKey();
         Map<String, Object> storyMap = new HashMap<>();
         storyMap.put("/stories/" + key, story);

@@ -14,16 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".UserDetailActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".UploadPictureActivity" />
-        <activity android:name=".CreateProfileActivity" />
-        <activity android:name=".ChooseLoginOrRegistrationActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SuggestedUsersActivity" />
-        <activity android:name=".FriendsActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".RegistrationActivity" android:screenOrientation="portrait" />
+        <activity android:name=".UserDetailActivity" android:screenOrientation="portrait"
+            android:parentActivityName=".FriendsActivity"/>
+        <activity android:name=".ProfileActivity" android:screenOrientation="portrait" android:label="Your profile"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".UploadPictureActivity" android:screenOrientation="portrait"  />
+        <activity android:name=".CreateProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ChooseLoginOrRegistrationActivity" android:screenOrientation="portrait" />
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SuggestedUsersActivity" android:screenOrientation="portrait" />
+        <activity android:name=".FriendsActivity" android:screenOrientation="portrait"
+            android:label="Your friends"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

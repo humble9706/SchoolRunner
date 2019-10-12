@@ -44,7 +44,10 @@ public class StoryList extends RecyclerView.Adapter<StoryList.ViewHolder> {
 
         subject.setText(stories.get(position).getSubjectUsername());
         verb.setText(stories.get(position).getVerb());
-        object.setText(stories.get(position).getObjectUsername());
+
+        if(stories.get(position).getObjectUsername() != null){
+            object.setText(stories.get(position).getObjectUsername());
+        }
     }
 
     @Override
