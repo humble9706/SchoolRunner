@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createAppDir() {
         File folder = new File(
-                Environment.getExternalStorageDirectory() + File.separator + "School Talk"
+                Environment.getExternalStorageDirectory() + File.separator + "School Runner"
         );
         if(!folder.exists()){
             if(folder.mkdir()){
