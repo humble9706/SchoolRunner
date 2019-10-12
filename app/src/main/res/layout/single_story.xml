@@ -27,21 +27,21 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:id="@+id/subject"
-                android:text="subject"/>
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:id="@+id/verb"
-                android:text="verb"/>
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:id="@+id/object"
-                android:text="object"/>
+                />
         </LinearLayout>
     </LinearLayout>
 

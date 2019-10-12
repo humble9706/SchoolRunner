@@ -37,7 +37,7 @@ public class Story {
     }
 
     public String getObjectUsername() {
-        return objectUsername;
+        return  objectUsername;
     }
 
     public void setObjectUsername(String objectUsername) {
@@ -45,7 +45,7 @@ public class Story {
     }
 
     public String getVerb() {
-        return verb;
+        return " " + verb;
     }
 
     public void setVerb(String verb) {
