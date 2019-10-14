@@ -68,6 +68,7 @@ public class SuggestedUsersActivity extends AppCompatActivity {
                             firebaseUser.getEmail()
                     )) {
                         userObjects.add(userSnapShot.getValue(User.class));
+                        usersAdapter.notifyDataSetChanged();
                     }
                 }
             }
