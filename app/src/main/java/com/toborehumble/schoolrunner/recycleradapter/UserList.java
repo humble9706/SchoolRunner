@@ -1,4 +1,4 @@
-package com.toborehumble.schoolrunner.adapter;
+package com.toborehumble.schoolrunner.recycleradapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,13 +17,13 @@ import com.toborehumble.schoolrunner.R;
 import com.toborehumble.schoolrunner.UserDetailActivity;
 import com.toborehumble.schoolrunner.pojo.User;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class UserList extends RecyclerView.Adapter<UserList.ViewHolder> {
     private Context context;
-    private List<User> userObjects;
+    private ArrayList<User> userObjects;
 
-    public UserList(Context context, List<User> userObjects) {
+    public UserList(Context context, ArrayList<User> userObjects) {
         this.context = context;
         this.userObjects = userObjects;
     }
@@ -32,7 +32,7 @@ public class UserList extends RecyclerView.Adapter<UserList.ViewHolder> {
         this.context = context;
     }
 
-    public void setUserObjects(List<User> userObjects) {
+    public void setUserObjects(ArrayList<User> userObjects) {
         this.userObjects = userObjects;
     }
 

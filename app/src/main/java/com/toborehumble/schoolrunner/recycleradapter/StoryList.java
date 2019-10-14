@@ -1,4 +1,4 @@
-package com.toborehumble.schoolrunner.adapter;
+package com.toborehumble.schoolrunner.recycleradapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

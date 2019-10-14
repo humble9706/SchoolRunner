@@ -1,6 +1,7 @@
 package com.toborehumble.schoolrunner;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,9 @@ public class RegistrationActivity extends AppCompatActivity {
     TextInputEditText password_edit;
     StorageReference storageReference;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     String username;
 
     @Override
@@ -41,6 +45,9 @@ public class RegistrationActivity extends AppCompatActivity {
         to_login_btn = findViewById(R.id.btn_to_login);
         username_edit = findViewById(R.id.username_edit_register);
         password_edit = findViewById(R.id.password_edit_register);
+
+        sharedPreferences = getSharedPreferences("my_prefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         firebaseAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -80,6 +87,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             firebaseUser = firebaseAuth.getCurrentUser();
+                            editor.putString("system_username", username);
                             toCreateProfileActivity();
                         } else {
                             Toast.makeText(
@@ -100,5 +108,11 @@ public class RegistrationActivity extends AppCompatActivity {
         toCreateProfileActivity.putExtras(bundle);
         toCreateProfileActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(toCreateProfileActivity);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        editor.commit();
     }
 }

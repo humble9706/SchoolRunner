@@ -1,27 +1,34 @@
 package com.toborehumble.schoolrunner.pojo;
 
 public class FriendRequest {
-    private String requestFrom;
-    private String requestTo;
+    private User requestFrom;
+    private User requestTo;
     private long timeStamp;
-    private boolean requestAccepted;
+    private boolean accepted;
 
     public FriendRequest(){}
 
-    public FriendRequest(String requestFrom, String requestTo, long timeStamp,
-                         boolean requestAccepted) {
-        this.requestTo = requestTo;
+    public FriendRequest(User requestFrom, User requestTo) {
         this.requestFrom = requestFrom;
-        this.timeStamp = timeStamp;
-        this.requestAccepted = requestAccepted;
+        this.requestTo = requestTo;
+        this.timeStamp = System.currentTimeMillis();
+        this.accepted = false;
     }
 
-    public String getRequestFrom() {
+    public User getUserFrom() {
         return requestFrom;
     }
 
-    public void setRequestFrom(String requestFrom) {
+    public void setUserFrom(User requestFrom) {
         this.requestFrom = requestFrom;
+    }
+
+    public User getUserTo() {
+        return requestTo;
+    }
+
+    public void setUserTo(User requestTo) {
+        this.requestTo = requestTo;
     }
 
     public long getTimeStamp() {
@@ -32,19 +39,11 @@ public class FriendRequest {
         this.timeStamp = timeStamp;
     }
 
-    public String getRequestTo() {
-        return requestTo;
+    public boolean isAccepted() {
+        return accepted;
     }
 
-    public void setRequestTo(String requestTo) {
-        this.requestTo = requestTo;
-    }
-
-    public boolean isRequestAccepted() {
-        return requestAccepted;
-    }
-
-    public void setRequestAccepted(boolean requestAccepted) {
-        this.requestAccepted = requestAccepted;
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 }

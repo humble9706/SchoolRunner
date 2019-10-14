@@ -13,6 +13,13 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         app:subtitleTextColor="@android:color/white"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@android:color/white" >
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/friends_count_chip"
+            app:rippleColor="@color/colorAccent"
+            android:text="friends"/>
+    </androidx.appcompat.widget.Toolbar>
 
 </LinearLayout>

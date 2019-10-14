@@ -23,8 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.toborehumble.schoolrunner.adapter.StoryList;
 import com.toborehumble.schoolrunner.pojo.Story;
+import com.toborehumble.schoolrunner.recycleradapter.StoryList;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -125,7 +125,13 @@ public class MainActivity extends AppCompatActivity {
                                 MainActivity.this, FriendsActivity.class
                         );
                         startActivity(toFriendsActivity);
-                    }
+                    }break;
+                    case 4: {
+                        Intent toSuggestionsActivity = new Intent(
+                                MainActivity.this, SuggestedUsersActivity.class
+                        );
+                        startActivity(toSuggestionsActivity);
+                    }break;
                 }
             }
 

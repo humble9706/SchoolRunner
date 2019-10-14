@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/friend_request_image"
+        android:layout_width="100dp"
+        android:scaleType="fitXY"
+        android:layout_height="100dp"
+        tools:srcCompat="@tools:sample/avatars[7]" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/friend_request_username"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="6dp"
+        android:textColor="@android:color/black"
+        android:text="username"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="end"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/accept_request_btn"
+            android:layout_gravity="center_vertical"
+            android:textAllCaps="false"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Accept request"/>
+    </LinearLayout>
+</LinearLayout>

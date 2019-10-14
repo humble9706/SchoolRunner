@@ -76,6 +76,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         profileObject.setFollowingCount(0);
         profileObject.setProfileQuote(quote);
         profileObject.setProfilePicture(null);
+        profileObject.setEmail(auth_user.getEmail());
 
         reference.child("users").child(auth_user.getUid()).child("profile").setValue(profileObject, new DatabaseReference.CompletionListener() {
             @Override

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ProfileActivity">
 
@@ -12,39 +13,79 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white"
+        android:theme="?attr/actionBarTheme">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/friends_count_chip"
+            android:layout_gravity="end"
+            app:chipBackgroundColor="@android:color/white"
+            android:textColor="@android:color/black"
+            android:text="friends count"
+            android:layout_marginBottom="6dp"/>
+    </androidx.appcompat.widget.Toolbar>
 
 
-    <ImageView
-        android:id="@+id/profile_page_image"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        tools:srcCompat="@tools:sample/avatars[1]" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/profile_page_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                tools:srcCompat="@tools:sample/avatars[1]" />
 
+            <TextView
+                android:id="@+id/profile_page_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="holder" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="holder"
-        android:id="@+id/profile_page_username"/>
+            <TextView
+                android:id="@+id/profile_page_profile_quote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="holder" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="holder"
-        android:id="@+id/profile_page_profile_quote"/>
+            <TextView
+                android:id="@+id/profile_page_hobby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="holder" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="holder"
-        android:id="@+id/profile_page_hobby"/>
+            <TextView
+                android:id="@+id/profile_page_department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="holder" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="holder"
-        android:id="@+id/profile_page_department"/>
+        <androidx.viewpager.widget.ViewPager
+            android:layout_marginTop="6dp"
+            android:id="@+id/profile_page_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

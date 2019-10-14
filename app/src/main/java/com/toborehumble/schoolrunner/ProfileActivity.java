@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.toborehumble.schoolrunner.pageradapter.ProfilePagerAdapter;
 import com.toborehumble.schoolrunner.pojo.Profile;
 
 import java.io.IOException;
@@ -45,6 +48,9 @@ public class ProfileActivity extends AppCompatActivity {
     StorageReference storageReference;
     String profilePhotoUrl;
 
+    ViewPager profile_page_pager;
+    ProfilePagerAdapter profilePagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +63,14 @@ public class ProfileActivity extends AppCompatActivity {
         profile_username = findViewById(R.id.profile_page_username);
         profile_quote = findViewById(R.id.profile_page_profile_quote);
         profile_department = findViewById(R.id.profile_page_department);
+        profile_page_pager = findViewById(R.id.profile_page_pager);
+
+        profilePagerAdapter = new ProfilePagerAdapter(
+                getSupportFragmentManager(),
+                FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+        );
+
+        profile_page_pager.setAdapter(profilePagerAdapter);
 
         fireBaseStorage = FirebaseStorage.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();

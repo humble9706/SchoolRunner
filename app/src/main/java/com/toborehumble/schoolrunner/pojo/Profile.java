@@ -11,22 +11,33 @@ public class Profile {
     private int followingCount;
     private String uid;
     private String profilePicture;
+    private String email;
 
     public Profile(){}
 
     public Profile(String userName, String birthDay, String hobby,
                    String department,
                    String tribe, String profileQuote,
+                   String email,
                    int followersCount,
                    int followingCount) {
         this.userName = userName;
         this.birthDay = birthDay;
+        this.email = email;
         this.hobby = hobby;
         this.department = department;
         this.tribe = tribe;
         this.profileQuote = profileQuote;
         this.followersCount = followersCount;
         this.followingCount = followingCount;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getProfilePicture() {
