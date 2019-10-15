@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "46264710113",
+    "firebase_url": "https://schoolrunner-8aedf.firebaseio.com",
+    "project_id": "schoolrunner-8aedf",
+    "storage_bucket": "schoolrunner-8aedf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46264710113:android:8d7f64569a75e29e9058a0",
+        "android_client_info": {
+          "package_name": "com.toborehumble.schoolrunner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46264710113-03qkm849m1o1n6g24rtapmekc0frpcv3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.toborehumble.schoolrunner",
+            "certificate_hash": "6251b93be67b949b5c1d8f5915c72e43e8c3fecb"
+          }
+        },
+        {
+          "client_id": "46264710113-lh2ksm3cbsfvad1db7fcjc92q7cu1f18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUGocG_o6ZRdKCZYniu-AlmwqS87mACHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46264710113-lh2ksm3cbsfvad1db7fcjc92q7cu1f18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -67,6 +67,7 @@ public class FriendRequests extends Fragment {
         friendRequestsListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                friendRequests.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     friendRequests.add(snapshot.getValue(FriendRequest.class));
                     friendRequestsList.notifyDataSetChanged();
