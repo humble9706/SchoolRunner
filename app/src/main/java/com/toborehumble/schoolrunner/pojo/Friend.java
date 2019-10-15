@@ -4,6 +4,10 @@ public class Friend {
     private long timeStamp;
     private User friend;
 
+    public Friend() {
+
+    }
+
     public Friend(User friend) {
         this.timeStamp = System.currentTimeMillis();
         this.friend = friend;

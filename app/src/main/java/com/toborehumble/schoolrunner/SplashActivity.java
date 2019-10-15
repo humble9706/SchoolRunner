@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -104,17 +103,17 @@ public class SplashActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 123) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Camera permission granted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Camera permission granted", Toast.LENGTH_SHORT).show();
             }
         }
         if (requestCode == 456) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Read permission granted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Read permission granted", Toast.LENGTH_SHORT).show();
             }
         }
         if (requestCode == 789) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Write permission granted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Write permission granted", Toast.LENGTH_SHORT).show();
             }
         }
     }

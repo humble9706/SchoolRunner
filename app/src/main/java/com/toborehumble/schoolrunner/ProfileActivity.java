@@ -1,10 +1,6 @@
 package com.toborehumble.schoolrunner;
 
-import android.content.res.AssetManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +23,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.toborehumble.schoolrunner.pageradapter.ProfilePagerAdapter;
 import com.toborehumble.schoolrunner.pojo.Profile;
-
-import java.io.IOException;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -94,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profile_department.setText(profileObject.getDepartment());
                 profile_quote.setText(profileObject.getProfileQuote());
 
-                Glide.with(ProfileActivity.this).load(Uri.parse(profileObject.getProfilePicture())).into(profile_image);
+                //Glide.with(ProfileActivity.this).load(Uri.parse(profileObject.getProfilePicture())).into(profile_image);
             }
 
             @Override
@@ -116,39 +109,6 @@ public class ProfileActivity extends AppCompatActivity {
                 getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp)
         );
         actionBar.setDisplayHomeAsUpEnabled(true);
-    }
 
-
-    private void uploadImage() {
-        AssetManager assetManager = getAssets();
-        String[] paths = new String[0];
-        try {
-            paths = assetManager.list("assets");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        for (String path : paths) {
-            Toast.makeText(ProfileActivity.this, path, Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.profile_activity_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case R.id.action_edit_profile: {
-                uploadImage();
-            }
-            break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return true;
     }
 }

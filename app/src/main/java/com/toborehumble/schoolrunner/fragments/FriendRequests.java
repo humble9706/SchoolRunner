@@ -69,6 +69,7 @@ public class FriendRequests extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     friendRequests.add(snapshot.getValue(FriendRequest.class));
+                    friendRequestsList.notifyDataSetChanged();
                 }
             }
 

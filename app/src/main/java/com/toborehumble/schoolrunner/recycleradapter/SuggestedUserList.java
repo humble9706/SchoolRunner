@@ -38,6 +38,8 @@ public class SuggestedUserList extends RecyclerView.Adapter<SuggestedUserList.Vi
     private Context context;
     private ArrayList<User> userObjects;
 
+    DatabaseReference dbRef;
+
     DatabaseReference authUserRef;
     User userFrom;
 
@@ -45,6 +47,7 @@ public class SuggestedUserList extends RecyclerView.Adapter<SuggestedUserList.Vi
         this.context = context;
         this.userObjects = userObjects;
         authUser = FirebaseAuth.getInstance().getCurrentUser();
+        dbRef = FirebaseDatabase.getInstance().getReference();
         authUserRef = FirebaseDatabase.getInstance().getReference().child("users")
                 .child(authUser.getUid());
         authUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -122,13 +125,12 @@ public class SuggestedUserList extends RecyclerView.Adapter<SuggestedUserList.Vi
     }
 
     private void sendFriendRequest(int position) {
-        FriendRequest friendRequestObject = new FriendRequest(
-                userFrom, userObjects.get(position)
-        );
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-
         String key =
                 dbRef.child("users").child(authUser.getUid()).child("friend_requests_made").push().getKey();
+
+        FriendRequest friendRequestObject = new FriendRequest(
+                userFrom, userObjects.get(position), key
+        );
 
         Map<String, Object> requestUpdates = new HashMap<>();
         requestUpdates.put("/users/" + authUser.getUid() + "/friend_requests_made/" + key,

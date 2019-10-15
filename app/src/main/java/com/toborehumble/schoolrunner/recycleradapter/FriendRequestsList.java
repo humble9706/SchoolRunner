@@ -32,7 +32,8 @@ public class FriendRequestsList extends RecyclerView.Adapter<FriendRequestsList.
     private ArrayList<FriendRequest> friendRequests;
     DatabaseReference authUserRef;
 
-    public FriendRequestsList(){}
+    public FriendRequestsList() {
+    }
 
     public FriendRequestsList(Context context, ArrayList<FriendRequest> friendRequests) {
         authUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -83,9 +84,10 @@ public class FriendRequestsList extends RecyclerView.Adapter<FriendRequestsList.
         request_image.setImageDrawable(context.getResources().getDrawable(R.mipmap.ic_launcher));
     }
 
-    private void acceptFriendRequest(int position){
+    private void acceptFriendRequest(final int position) {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
         Friend friend = new Friend(friendRequests.get(position).getUserFrom());
+        Friend friendTo = new Friend(friendRequests.get(position).getUserTo());
 
         String key =
                 dbRef.child("users").child(authUser.getUid()).child("friends").push().getKey();
@@ -94,10 +96,28 @@ public class FriendRequestsList extends RecyclerView.Adapter<FriendRequestsList.
         requestUpdates.put("/users/" + authUser.getUid() + "/friends/" + key,
                 friend);
 
+        requestUpdates.put("/users/" + friendRequests.get(position).getUserFrom()
+                        .getProfile().getUid() + "/friends/" + key,
+                friendTo);
+
         dbRef.updateChildren(requestUpdates).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(context, "Friend request accepted", Toast.LENGTH_LONG).show();
+                DatabaseReference reqRef = FirebaseDatabase.getInstance().getReference()
+                        .child("users").child(authUser.getUid()).child("friend_requests_received")
+                        .child(friendRequests.get(position).getKey());
+                reqRef.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(context, "request deleted", Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "request removal failed", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -113,10 +133,11 @@ public class FriendRequestsList extends RecyclerView.Adapter<FriendRequestsList.
         return friendRequests.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView username;
         private Button accept_request_btn;
         private ImageView request_image;
+
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.friend_request_username);

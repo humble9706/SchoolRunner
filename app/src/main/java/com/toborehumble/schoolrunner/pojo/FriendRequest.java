@@ -3,16 +3,25 @@ package com.toborehumble.schoolrunner.pojo;
 public class FriendRequest {
     private User requestFrom;
     private User requestTo;
+    private String key;
     private long timeStamp;
     private boolean accepted;
 
     public FriendRequest(){}
 
-    public FriendRequest(User requestFrom, User requestTo) {
+    public FriendRequest(User requestFrom, User requestTo, String key) {
         this.requestFrom = requestFrom;
         this.requestTo = requestTo;
-        this.timeStamp = System.currentTimeMillis();
-        this.accepted = false;
+        this.key = key;
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public User getUserFrom() {
